@@ -11,7 +11,6 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-
 	<!-- Connection Pool DataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -19,27 +18,23 @@
 		<property name="username" value="webdb" />
 		<property name="password" value="webdb" />
 	</bean>
-	
-	
+
 	<!-- MyBatis SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis/configuration.xml" />
 	</bean>
 
-
 	<!-- MyBatis SqlSessionTemplate -->
-	<!-- 생성자의 첫 번째 파라미터에 sqlSessionFactory 객체를 넣으라는 의미 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 
-
 	<context:annotation-config />
 	<context:component-scan
-		base-package="com.victolee.guestbook.repository,
-						com.victolee.guestbook.exception,
-						com.victolee.guestbook.service">
+		base-package="com.example.post.repository,
+						com.example.post.exception,
+						com.example.post.service">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Repository" />
 		<context:include-filter type="annotation"

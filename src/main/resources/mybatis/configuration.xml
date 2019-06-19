@@ -2,9 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="guestbookvo" type="com.victolee.guestbook.vo.GuestBookVO"></typeAlias>
+		<typeAlias alias="postvo" type="com.example.post.vo.PostVO"></typeAlias>
     </typeAliases>	
 	<mappers>
-		<mapper resource="mybatis/mappers/guestbook.xml" />
+		<mapper resource="mybatis/mappers/post.xml" />
 	</mappers>
 </configuration>

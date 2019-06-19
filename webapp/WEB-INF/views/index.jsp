@@ -15,12 +15,10 @@
 <title>방명록</title>
 </head>
 <body>
-	<img src="${ pageContext.servletContext.contextPath }/assets/images/1.jpg">
-	<form action="/guestbook/main/" method="post">
+	<form action="/old_post/" method="post">
 		<table border="1" width="500">
 			<tr>
 				<td>이름</td><td><input type="text" name="name"></td>
-				<td>비밀번호</td><td><input type="password" name="pwd"></td>
 			</tr>
 			<tr>
 				<td colspan=4><textarea name="content" cols=60 rows=5></textarea></td>
@@ -42,7 +40,6 @@
 				<td><a href="/guestbook/main/deleteform?no=${vo.no }">삭제</a></td>
 			</tr>
 			<tr>
-				<!-- 개행(\n)을 JSTL에서 사용할 수 없어서 page context에 다른 변수로 추가해줘야함 -->
 				<td>${fn:replace(vo.content, newLine, "<br>") }</td>
 			</tr>
 		</table>

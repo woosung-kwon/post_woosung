@@ -10,7 +10,6 @@
 
 	<mvc:annotation-driven />
 
-	<!-- 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러 -->
 	<mvc:default-servlet-handler />
 
 	<!-- JSTL view -->
@@ -23,9 +22,6 @@
 		<property name='order' value='1' />
 	</bean>
 
-
-	<!-- 빈 설정을 어노테이션 기반으로 하겠다는 설정태그 -->
 	<context:annotation-config />
-	<!-- 스캐닝 할 기준 패키지 -->
-	<context:component-scan base-package="com.victolee.guestbook.controller" />
+	<context:component-scan base-package="com.example.post.controller" />
 </beans>

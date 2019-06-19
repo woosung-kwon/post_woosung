@@ -1,4 +1,4 @@
-package com.victolee.guestbook.controller;
+package com.example.post.controller;
 
 import java.util.List;
 
@@ -9,27 +9,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.victolee.guestbook.service.GuestbookService;
-import com.victolee.guestbook.vo.GuestBookVO;
+import com.example.post.service.PostService;
+import com.example.post.vo.PostVO;
 
 @Controller
-@RequestMapping("/main")
-public class GuestBookController {
+@RequestMapping("/old_post")
+public class PostController {
 	@Autowired
-	private GuestbookService guestBookService;
+	private PostService postService;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String list(Model model) {
-		List<GuestBookVO> list = guestBookService.getList();
+		List<PostVO> list = postService.getList();
 		model.addAttribute("list", list);
 		return "index";
 	}
 	
 	
 	@RequestMapping(value="/", method=RequestMethod.POST)
-	public String insert(GuestBookVO vo) {
-		guestBookService.insert(vo);
-		return "redirect:/main/";
+	public String insert(PostVO vo) {
+		postService.insert(vo);
+		return "redirect:/old_post/";
 	}
 	
 	
@@ -41,8 +41,8 @@ public class GuestBookController {
 	
 	
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
-	public String delete(GuestBookVO vo) {
-		guestBookService.delete(vo);
-		return "redirect:/main/";
+	public String delete(PostVO vo) {
+		postService.delete(vo);
+		return "redirect:/old_post/";
 	}
 }

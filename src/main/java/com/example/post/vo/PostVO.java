@@ -1,6 +1,6 @@
-package com.victolee.guestbook.vo;
+package com.example.post.vo;
 
-public class GuestBookVO {
+public class PostVO {
 	private Integer no;
 	private String name;
 	private String pwd;

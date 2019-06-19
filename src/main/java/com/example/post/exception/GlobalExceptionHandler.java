@@ -1,4 +1,4 @@
-package com.victolee.guestbook.exception;
+package com.example.post.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
