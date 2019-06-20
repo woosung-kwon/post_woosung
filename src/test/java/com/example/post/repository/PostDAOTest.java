@@ -30,7 +30,7 @@ public class PostDAOTest {
     public void testLogin_실패케이스() {
         PostDAO dao = new PostDAO();
         String id = "admin";
-        String pwd = "1111";
+        String pwd = "1234";
         assertTrue(dao.login(id, pwd));
     }
 }
