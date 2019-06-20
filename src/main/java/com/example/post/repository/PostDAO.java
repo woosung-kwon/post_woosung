@@ -16,30 +16,39 @@ import com.example.post.vo.PostVO;
 public class PostDAO {
 	@Autowired
 	private DataSource dataSource;
-	
+
 	@Autowired
 	private SqlSession sqlSession;
-	
-	
+
+
 	public List<PostVO> getList() throws PostException {
 		List<PostVO> list = sqlSession.selectList("guestbook.getList");
 		return list;
 	}
-	
+
 	public boolean insert(PostVO vo ) throws PostException {
 		int count = sqlSession.insert("guestbook.insert", vo);
 		return count == 1;
 	}
-	
+
 	public boolean delete(Integer no) throws PostException {
 		int count = sqlSession.delete("guestbook.delete", no);
 		return count == 1;
 	}
 
 	public boolean login(String id, String pwd) {
-		if(id == null || pwd == null){
+		if (id == null || pwd == null) {
 			return false;
 		}
-		return true;
+
+		if ("admin".equals(id) && "1234".equals(pwd)) {
+			return true;
+		}
+
+		PostVO post = new PostVO();
+		post.setName(id);
+		post.setPwd(pwd);
+
+		return false;
 	}
 }
