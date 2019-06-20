@@ -10,7 +10,7 @@
 		]]>
 	</select>
 	
-	<insert id="insert" parameterType="guestbookvo">
+	<insert id="insert" parameterType="postvo">
 		<![CDATA[
 			INSERT INTO guestbook
 			VALUES (null, #{ name }, password(#{ pwd }), #{ content }, (SELECT SYSDATE()) )

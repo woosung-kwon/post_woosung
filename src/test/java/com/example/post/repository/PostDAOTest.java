@@ -1,6 +1,7 @@
 package com.example.post.repository;
 
 import com.example.post.vo.PostVO;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -30,7 +31,8 @@ public class PostDAOTest {
     public void testLogin_실패케이스() {
         PostDAO dao = new PostDAO();
         String id = "admin";
-        String pwd = "1234";
-        assertTrue(dao.login(id, pwd));
+        String pwd = "1111";
+        //assertTrue(dao.login(id, pwd));
+        assertFalse(dao.login(id, pwd));
     }
 }
